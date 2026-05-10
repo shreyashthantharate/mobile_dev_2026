@@ -1,4 +1,4 @@
-import { View, Text, Image, TextInput } from "react-native";
+import { View, Text, Image, TextInput, Pressable } from "react-native";
 import { useState } from "react";
 
 export default function HomeScreen() {
@@ -45,6 +45,28 @@ export default function HomeScreen() {
           borderRadius: 6,
         }}
       />
+
+      <Pressable
+        // onLongPress={}
+        // onPressIn={}
+        // onPressOut={}
+        onPress={() => alert("Button Pressed")}
+        style={({ pressed }) => ({
+          backgroundColor: pressed ? "#f97474" : "#87fd54",
+          color: "#fff",
+        })}
+        hitSlop={{
+          top: 10,
+          bottom: 10,
+          right: 10,
+          left: 10,
+        }}
+      >
+        {({ pressed }) =>
+          pressed ? <Text>Processing</Text> : <Text>Pressed</Text>
+        }
+        {/* <Text>Press Me</Text> */}
+      </Pressable>
     </View>
   );
 }
