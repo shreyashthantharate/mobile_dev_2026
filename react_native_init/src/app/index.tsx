@@ -1,8 +1,19 @@
-import { StyleSheet, Text, View, ScrollView, Button } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  ScrollView,
+  Button,
+  Switch,
+} from "react-native";
 import React from "react";
+import { useState } from "react";
 
 const HomeScreen = () => {
   const items = Array.from({ length: 200 }, (_, i) => `Item ${i + 1}`);
+
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
   return (
     <ScrollView
       style={{ flex: 1, backgroundColor: "tomato" }}
@@ -32,6 +43,12 @@ const HomeScreen = () => {
         title="Hello i am button"
         color={"green"}
         onPress={() => alert("Hello world")}
+      />
+      <Switch
+        value={isDarkMode}
+        onValueChange={setIsDarkMode}
+        trackColor={{ false: "#ddd", true: "#6c62ff" }}
+        thumbColor={"gold"}
       />
     </ScrollView>
   );
